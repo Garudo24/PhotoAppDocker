@@ -13,7 +13,7 @@ RUN set -x \
 RUN set -x \
     && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
-    && php -r "unlock('composer-setup.php');"
+    && php -r "unlink('composer-setup.php');"
 
 RUN set -x \
     && a2enmod rewrite
