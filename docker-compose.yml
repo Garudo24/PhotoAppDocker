@@ -1,13 +1,13 @@
 version: '3'
 services:
-  photoapp:
+  photo-sharing:
     build:
-      context: ./docker/photoapp
+      context: ./docker/photo-sharing
     ports:
       - '9000:80'
     volumes:
-      - ./photoapp:/var/www/photoapp/
-    working_dir: /var/www/photoapp
+      - ./photo-sharing:/var/www/photo-sharing/
+    working_dir: /var/www/photo-sharing
     depends_on:
       - mysql
     environment:
