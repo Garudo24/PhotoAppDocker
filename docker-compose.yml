@@ -1,0 +1,23 @@
+version: '3'
+services:
+  photo-sharing:
+    build:
+      context: ./docker/photo-sharing
+    ports:
+      - '9000:80'
+    volumes:
+      - ./photo-sharing:/var/www/photo-sharing/
+    working_dir: /var/www/photo-sharing
+    depends_on:
+      - mysql
+    environment:
+      TZ: Asia/Tokyo
+
+  mysql:
+    build:
+      context: ./docker/mysql
+    ports:
+      - "32800:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      TZ: Asia/Tokyo
