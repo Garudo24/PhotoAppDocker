@@ -23,3 +23,14 @@ services:
       MYSQL_DATABASE: photo_sharing
       MYSQL_USER: root
       TZ: Asia/Tokyo
+
+  mysql_test:
+    build:
+      context: ./docker/mysql
+    ports:
+      - "32801:3306"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: photo_sharing
+      MYSQL_USER: root
+      TZ: Asia/Tokyo
